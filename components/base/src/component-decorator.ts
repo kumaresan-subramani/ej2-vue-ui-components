@@ -20,6 +20,13 @@ export let $internalHooks = [
   'errorCaptured' // 2.5
 ];
 
+export let optCheck;
+
+@Options(options)
+class Extended extends Super {
+  return Extended
+}
+
 export function EJComponentDecorator(options: any): any {
   return function (Component: any) {
     return EJcomponentFactory(Component, options);
@@ -90,8 +97,9 @@ export function EJcomponentFactory(
   const Super = superProto instanceof Vue
     ? superProto.constructor as any
     : Vue
-  const Extended = Super.extend(options)
-
+//   const Extended = Super.extend(options)
+  optCheck = options;
+  const Extended = new Extended();
   return Extended
 }
 
